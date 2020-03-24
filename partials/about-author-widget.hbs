@@ -1,0 +1,36 @@
+<section class="about-author-widget">
+  <!-- <h3 class="about&#45;author&#45;widget&#45;title">Subscribe to DEEZZZ{{@site.title}}</h3> -->
+  <!-- <p class="about&#45;author&#45;widget&#45;description">Get the latest posts delivered right to your inbox</p> -->
+  <ul class="about-author-list">
+    {{#foreach authors}}
+    <li class="about-author-list-item">
+      {{#if profile_image}}
+      <a href="{{url}}" class="about-author-avatar">
+        <img class="about-author-profile-image" src="{{img_url profile_image size="xs"}}" alt="{{name}}" />
+      </a>
+      {{else}}
+      <a href="{{url}}" class="about-author-avatar author-profile-image">{{> "icons/avatar"}}</a>
+      {{/if}}
+
+      {{#if bio}}
+      <div class="bio">
+        <h2>{{name}}</h2>
+        <p style="margin-bottom: 0px;">{{bio}}</p>
+        <div class="about-author-widget-social-links">
+          {{#if facebook}}
+          <a class="about-author-widget-social-link about-author-widget-social-link-fb" href="{{facebook_url facebook}}" title="Facebook" target="_blank" rel="noopener">{{> "icons/facebook"}}</a>
+          {{/if}}
+          {{#if twitter}}
+          <a class="about-author-widget-social-link about-author-widget-social-link-tw" href="{{twitter_url twitter}}" title="Twitter" target="_blank" rel="noopener">{{> "icons/twitter"}}</a>
+          {{/if}}
+        </div>
+        <p><a href="{{url}}">More posts</a> by {{name}}.</p>
+      </div>
+      {{else}}
+      <h2>{{name}}</h2>
+      <p>Read <a href="{{url}}">more posts</a> by this author.</p>
+      {{/if}}
+    </li>
+    {{/foreach}}
+  </ul>
+</section>
